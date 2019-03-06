@@ -2,15 +2,14 @@ const { QSBuilder } = require('../dist');
 
 const qs = new QSBuilder();
 
-qs.limit(10)
-  .skip(10)
-  .sort('field', -1);
+qs.limit(100)
+  .skip(0)
+  .sort('timestamp', -1);
+
+qs.prop('word').in('one', 'two', 'three');
 qs.prop('value')
-  .gt(1)
-  .lt(10);
-qs.prop('otherValue').in(1, 2, 3, 4, 5);
-qs.prop('tags').in('a', 'b', 'c', 1, 2, 3);
-qs.prop('name').nin('a', 'b', 'c');
-qs.prop('id').regex(/^test/);
+  .gt(10)
+  .lte(20);
+qs.prop('nested.status').ne('active');
 
 console.log(qs.toString());
