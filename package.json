@@ -1,0 +1,34 @@
+{
+  "name": "qproc-mongo-qs",
+  "version": "1.0.0",
+  "description": "Creates url encoded query strings that are compatible with qproc-mongo processors.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test",
+    "build": "rm -r ./dist; tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rledford/qproc-mongo-qs.git"
+  },
+  "keywords": [
+    "qproc-mongo",
+    "qs",
+    "qstring",
+    "query-string",
+    "query string"
+  ],
+  "author": "rledford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rledford/qproc-mongo-qs/issues"
+  },
+  "homepage": "https://github.com/rledford/qproc-mongo-qs#readme",
+  "dependencies": {
+    "@types/encodeurl": "^1.0.0",
+    "encodeurl": "^1.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  }
+}
