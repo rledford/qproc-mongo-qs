@@ -1,4 +1,4 @@
-class QSProp {
+class QSParam {
   private __name: string;
   private __eq: string = '';
   private __ne: string = '';
@@ -13,39 +13,39 @@ class QSProp {
   constructor(name: string) {
     this.__name = name;
   }
-  eq(...value: (string | number)[]): QSProp {
+  eq(...value: (string | number)[]): QSParam {
     this.__eq = `${value}`.trim();
     return this;
   }
-  ne(...value: (string | number)[]): QSProp {
+  ne(...value: (string | number)[]): QSParam {
     this.__ne = `${value}`.trim();
     return this;
   }
-  in(...value: (string | number)[]): QSProp {
+  in(...value: (string | number)[]): QSParam {
     this.__in = value;
     return this;
   }
-  nin(...value: (string | number)[]): QSProp {
+  nin(...value: (string | number)[]): QSParam {
     this.__nin = value;
     return this;
   }
-  gt(...value: (string | number)[]): QSProp {
+  gt(...value: (string | number)[]): QSParam {
     this.__gt = `${value}`.trim();
     return this;
   }
-  gte(...value: (string | number)[]): QSProp {
+  gte(...value: (string | number)[]): QSParam {
     this.__gte = `${value}`.trim();
     return this;
   }
-  lt(...value: (string | number)[]): QSProp {
+  lt(...value: (string | number)[]): QSParam {
     this.__lt = `${value}`.trim();
     return this;
   }
-  lte(...value: (string | number)[]): QSProp {
+  lte(...value: (string | number)[]): QSParam {
     this.__lte = `${value}`.trim();
     return this;
   }
-  regex(value: string | RegExp): QSProp {
+  regex(value: string | RegExp): QSParam {
     this.__regex = `${value}`.trim();
     return this;
   }
@@ -88,4 +88,4 @@ class QSProp {
   }
 }
 
-export { QSProp };
+export { QSParam };

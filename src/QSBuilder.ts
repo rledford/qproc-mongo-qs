@@ -1,8 +1,8 @@
 import encodeurl from 'encodeurl';
-import { QSProp } from './QSProp';
+import { QSParam } from './QSParam';
 
 class QSBuilder {
-  __prop: { [prop: string]: QSProp } = {};
+  __param: { [prop: string]: QSParam } = {};
   __limit: number = 0;
   __skip: number = 0;
   __sort: string[] = [];
@@ -12,14 +12,14 @@ class QSBuilder {
   __sortKey: string = 'sort';
   __searchKey: string = 'search';
 
-  prop(name: string) {
-    if (this.__prop[name]) {
-      return this.__prop[name];
+  param(name: string) {
+    if (this.__param[name]) {
+      return this.__param[name];
     }
     {
-      const prop = new QSProp(name);
-      this.__prop[name] = prop;
-      return prop;
+      const param = new QSParam(name);
+      this.__param[name] = param;
+      return param;
     }
   }
 
@@ -41,8 +41,8 @@ class QSBuilder {
     return this;
   }
 
-  sort(prop: string, direction: -1 | 1): QSBuilder {
-    this.__sort.push(`${direction === -1 ? 'desc' : 'asc'}:${prop}`);
+  sort(param: string, direction: -1 | 1): QSBuilder {
+    this.__sort.push(`${direction === -1 ? 'desc' : 'asc'}:${param}`);
     return this;
   }
   sortKey(key: string): QSBuilder {
@@ -73,9 +73,9 @@ class QSBuilder {
     if (this.__search) {
       parts.push(`${this.__searchKey}=${this.search}`);
     }
-    for (let k in this.__prop) {
-      const prop = this.__prop[k];
-      const part = prop.toString();
+    for (let k in this.__param) {
+      const param = this.__param[k];
+      const part = param.toString();
       if (part) {
         parts.push(part);
       }

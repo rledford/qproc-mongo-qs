@@ -13,7 +13,7 @@ Provides a query string builder class to create url encoded query strings that a
 - [Skip](#skip)
 - [Sort](#sort)
 - [Search](#search)
-- [Properties](#properties)
+- [Query Parameters](#query-parameters)
 
 ## Install
 
@@ -105,11 +105,11 @@ The `sort` method expects a `property name` and a numerical `direction` as argum
 
 ## Search
 
-The `search` method expects a `String` or `Number`. As stated in the `qproc-mongo` documentation, when a search key is present in the query parameters, all other query parameters are ignored. See the [qproc-mongo documentation](#https://www.npmjs.com/package/qproc-mongo#search) for more info. Returns the `QSBuilder` so that calls are chainable.
+The `search` method expects a `String` or `Number`. As stated in the `qproc-mongo` documentation, when a search key is present in the query parameters, all other query parameters are ignored. See the [qproc-mongo documentation](https://www.npmjs.com/package/qproc-mongo#search) for more info. Returns the `QSBuilder` so that calls are chainable.
 
-## Properties
+## Query Parameters
 
-The `prop` method expects a `property name` argument and returns a `QSProp`. The `prop` exposes the following operator functions. The operator functions return the `QSProp` for chaining.
+The `prop` method expects a `property name` argument and returns a `QSParam`. The `prop` exposes the following operator functions. The operator functions return the `QSParam` for chaining.
 
 | Function | Argument Type        | Description                                                 | Example                     |
 | -------- | -------------------- | ----------------------------------------------------------- | --------------------------- |
