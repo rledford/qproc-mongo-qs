@@ -1,5 +1,5 @@
 import encodeurl from 'encodeurl';
-import QSProp from './QSProp';
+import { QSProp } from './QSProp';
 
 class QSBuilder {
   __prop: { [prop: string]: QSProp } = {};

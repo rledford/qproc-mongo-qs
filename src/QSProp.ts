@@ -88,4 +88,4 @@ class QSProp {
   }
 }
 
-export default QSProp;
+export { QSProp };
