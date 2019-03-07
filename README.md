@@ -2,7 +2,7 @@
 
 Targets ES5+
 
-Creates url encoded query strings that are compatible with qproc-mongo. Provides a flexible QSBuilder class with chainable functions.
+Creates url encoded query strings that are compatible with qproc-mongo.
 
 ## Table of Contents
 
@@ -34,7 +34,6 @@ qs.prop('nested.status').ne('active');
 const qstring = qs.toString();
 
 console.log(qstring);
-/*
-limit=100&sort=desc:timestamp&word=in:one,two,three&value=gt:10&value=lte:20&nested.status=ne:active
-*/
+
+// limit=100&sort=desc:timestamp&word=in:one,two,three&value=gt:10,lte:20&nested.status=ne:active
 ```
