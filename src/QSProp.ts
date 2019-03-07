@@ -1,48 +1,48 @@
 class QSProp {
   private __name: string;
-  private __eq: string[] = [];
-  private __ne: string[] = [];
-  private __in: string[] = [];
-  private __nin: string[] = [];
-  private __gt: string[] = [];
-  private __gte: string[] = [];
-  private __lt: string[] = [];
-  private __lte: string[] = [];
+  private __eq: string = '';
+  private __ne: string = '';
+  private __in: (string | number)[] = [];
+  private __nin: (string | number)[] = [];
+  private __gt: string = '';
+  private __gte: string = '';
+  private __lt: string = '';
+  private __lte: string = '';
   private __regex: string = '';
 
   constructor(name: string) {
     this.__name = name;
   }
   eq(...value: (string | number)[]): QSProp {
-    this.__eq.push(`${value}`.trim());
+    this.__eq = `${value}`.trim();
     return this;
   }
   ne(...value: (string | number)[]): QSProp {
-    this.__ne.push(`${value}`.trim());
+    this.__ne = `${value}`.trim();
     return this;
   }
   in(...value: (string | number)[]): QSProp {
-    this.__in.push(`${value}`.trim());
+    this.__in = value;
     return this;
   }
   nin(...value: (string | number)[]): QSProp {
-    this.__nin.push(`${value}`.trim());
+    this.__nin = value;
     return this;
   }
   gt(...value: (string | number)[]): QSProp {
-    this.__gt.push(`${value}`.trim());
+    this.__gt = `${value}`.trim();
     return this;
   }
   gte(...value: (string | number)[]): QSProp {
-    this.__gte.push(`${value}`.trim());
+    this.__gte = `${value}`.trim();
     return this;
   }
   lt(...value: (string | number)[]): QSProp {
-    this.__lt.push(`${value}`.trim());
+    this.__lt = `${value}`.trim();
     return this;
   }
   lte(...value: (string | number)[]): QSProp {
-    this.__lte.push(`${value}`.trim());
+    this.__lte = `${value}`.trim();
     return this;
   }
   regex(value: string | RegExp): QSProp {
@@ -53,35 +53,35 @@ class QSProp {
   toString() {
     const parts: string[] = [];
     if (this.__eq.length) {
-      parts.push(`${this.__name}=eq:${this.__eq.join(',')}`);
+      parts.push(`eq:${this.__eq}`);
     }
     if (this.__ne.length) {
-      parts.push(`${this.__name}=ne:${this.__ne.join(',')}`);
+      parts.push(`ne:${this.__ne}`);
     }
     if (this.__in.length) {
-      parts.push(`${this.__name}=in:${this.__in.join(',')}`);
+      parts.push(`in:${this.__in}`);
     }
     if (this.__nin.length) {
-      parts.push(`${this.__name}=nin:${this.__nin.join(',')}`);
+      parts.push(`nin:${this.__nin}`);
     }
     if (this.__gt.length) {
-      parts.push(`${this.__name}=gt:${this.__gt.join(',')}`);
+      parts.push(`gt:${this.__gt}`);
     }
     if (this.__gte.length) {
-      parts.push(`${this.__name}=gte:${this.__gte.join(',')}`);
+      parts.push(`gte:${this.__gte}`);
     }
     if (this.__lt.length) {
-      parts.push(`${this.__name}=lt:${this.__lt.join(',')}`);
+      parts.push(`lt:${this.__lt}`);
     }
     if (this.__lte.length) {
-      parts.push(`${this.__name}=lte:${this.__lte.join(',')}`);
+      parts.push(`lte:${this.__lte}`);
     }
     if (this.__regex.length) {
-      parts.push(`${this.__name}=regex:${this.__regex}`);
+      parts.push(`regex:${this.__regex}`);
     }
 
     if (parts.length) {
-      return parts.join('&');
+      return `${this.__name}=${parts.join(',')}`;
     } else {
       return '';
     }
