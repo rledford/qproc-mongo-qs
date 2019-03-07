@@ -11,5 +11,6 @@ qs.prop('value')
   .gt(10)
   .lte(20);
 qs.prop('nested.status').ne('active');
+qs.prop('text').regex(/^[A-z0-9]/);
 
 console.log(qs.toString());
