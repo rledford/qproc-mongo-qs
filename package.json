@@ -1,6 +1,6 @@
 {
   "name": "qproc-mongo-qs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides a query string builder class to create url encoded query strings that are compatible with qproc-mongo.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/rledford/qproc-mongo-qs#readme",
   "dependencies": {
-    "@types/encodeurl": "^1.0.0",
     "encodeurl": "^1.0.2"
   },
   "devDependencies": {
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "@types/encodeurl": "^1.0.0"
   }
 }
