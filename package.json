@@ -2,7 +2,11 @@
   "name": "qproc-mongo-qs",
   "version": "1.0.0",
   "description": "Creates url encoded query strings that are compatible with qproc-mongo processors.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "node test",
     "build": "rm -r ./dist; tsc"
