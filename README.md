@@ -60,6 +60,8 @@ The `limit`, `skip`, `sort`, and `search` keys should match the keys `qproc-mong
 | sort   | `sort`   | The sort property name(s) and order(s).  | `qs.sortKey('orderBy')` |
 | search | `search` | The search term.                         | `qs.searchKey('q')`     |
 
+### Example
+
 ```js
 const { QSBuilder } = require('qproc-mongo-qs');
 
@@ -69,9 +71,9 @@ qs.limitKey('count')
   .sortKey('orderBy')
   .searchKey('q')
   .limit(10)
-  .sort('count', 1);
+  .sort('value', 1);
 
-qs.prop('count')
+qs.prop('value')
   .gt(1)
   .lte(10);
 
@@ -79,7 +81,7 @@ console.log(qs.toString());
 
 /*
 
-count=10&orderBy=asc:count&count=gt:1,lte:10
+count=10&orderBy=asc:value&value=gt:1,lte:10
 
 */
 ```
@@ -107,7 +109,7 @@ The `search` method expects a `String` or `Number`. As stated in the `qproc-mong
 
 ## Properties
 
-The `prop` method expects a `property name` argument and returns a `QSProp`. The `prop` exposes the following operator functions.
+The `prop` method expects a `property name` argument and returns a `QSProp`. The `prop` exposes the following operator functions. The operator functions return the `QSProp` for chaining.
 
 | Function | Argument Type        | Description                                                 | Example                     |
 | -------- | -------------------- | ----------------------------------------------------------- | --------------------------- |
@@ -122,7 +124,3 @@ The `prop` method expects a `property name` argument and returns a `QSProp`. The
 | regex    | `String` \| `RegExp` | Match regular expression.                                   | `prop('key').regex(/^A-z/)` |
 
 Calling the same operator method on the same `prop` multiple times will overwrite the previous value.
-
-```
-
-```
