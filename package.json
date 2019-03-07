@@ -8,8 +8,9 @@
     "dist"
   ],
   "scripts": {
-    "test": "node test",
-    "build": "rm -r ./dist; tsc"
+    "test": "npm run build; node test",
+    "build": "rm -r ./dist; tsc",
+    "publish": "npm run build; npm publish"
   },
   "repository": {
     "type": "git",
