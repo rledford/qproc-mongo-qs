@@ -7,6 +7,7 @@ qs.limit(100)
   .sort('timestamp', -1);
 
 qs.param('word').in('one', 'two', 'three');
+qs.param('list').all('a', 'b', 'c');
 qs.param('value')
   .gt(10)
   .lte(20);

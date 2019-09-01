@@ -8,6 +8,7 @@ class QSParam {
   private __gte: string = '';
   private __lt: string = '';
   private __lte: string = '';
+  private __all: (string | number)[] = [];
   private __regex: string = '';
 
   constructor(name: string) {
@@ -45,6 +46,10 @@ class QSParam {
     this.__lte = `${value}`.trim();
     return this;
   }
+  all(...value: (string | number)[]): QSParam {
+    this.__all = value;
+    return this;
+  }
   regex(value: string | RegExp): QSParam {
     this.__regex = `${value}`.trim();
     return this;
@@ -75,6 +80,9 @@ class QSParam {
     }
     if (this.__lte.length) {
       parts.push(`lte:${this.__lte}`);
+    }
+    if (this.__all.length) {
+      parts.push(`all:${this.__all}`);
     }
     if (this.__regex.length) {
       parts.push(`regex:${this.__regex}`);
