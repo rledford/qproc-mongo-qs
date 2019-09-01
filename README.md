@@ -24,19 +24,19 @@ npm i -S qproc-mongo-qs
 ## Usage
 
 ```js
-const { QSBuilder } = require('qproc-mongo-qs');
+const { QSBuilder } = require("qproc-mongo-qs");
 const qs = new QSBuilder();
 
 qs.limit(100)
   .skip(0)
-  .sort('timestamp', -1);
+  .sort("timestamp", -1);
 
-qs.prop('word').in('one', 'two', 'three');
-qs.prop('value')
+qs.prop("word").in("one", "two", "three");
+qs.prop("value")
   .gt(10)
   .lte(20);
-qs.prop('nested.status').ne('active');
-qs.prop('text').regex(/^[A-z0-9]/);
+qs.prop("nested.status").ne("active");
+qs.prop("text").regex(/^[A-z0-9]/);
 
 console.log(qs.toString());
 
@@ -63,17 +63,17 @@ The `limit`, `skip`, `sort`, and `search` keys should match the keys `qproc-mong
 ### Example
 
 ```js
-const { QSBuilder } = require('qproc-mongo-qs');
+const { QSBuilder } = require("qproc-mongo-qs");
 
 const qs = new QSBuilder();
-qs.limitKey('count')
-  .skipKey('offset')
-  .sortKey('orderBy')
-  .searchKey('q')
+qs.limitKey("count")
+  .skipKey("offset")
+  .sortKey("orderBy")
+  .searchKey("q")
   .limit(10)
-  .sort('value', 1);
+  .sort("value", 1);
 
-qs.prop('value')
+qs.prop("value")
   .gt(1)
   .lte(10);
 
@@ -121,6 +121,7 @@ The `prop` method expects a `property name` argument and returns a `QSParam`. Th
 | gte      | `String` \| `Number` | Greater than or equal to.                                   | `prop('key').gte(1)`        |
 | lt       | `String` \| `Number` | Less than.                                                  | `prop('key').lt(1)`         |
 | lte      | `String` \| `Number` | Less than or equal to.                                      | `prop('key').lte(1)`        |
+| all      | `String` \| `Number` | Contains all values. Accepts any number of arguments.       | `prop('key').all(1,2,3,4)`  |
 | regex    | `String` \| `RegExp` | Match regular expression.                                   | `prop('key').regex(/^A-z/)` |
 
 Calling the same operator method on the same `prop` multiple times will overwrite the previous value.
